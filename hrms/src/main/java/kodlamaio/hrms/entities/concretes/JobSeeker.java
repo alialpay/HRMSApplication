@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-import kodlamaio.hrms.entities.abstracts.User;
+import kodlamaio.hrms.core.entities.User;
 
 import java.time.LocalDate;
 

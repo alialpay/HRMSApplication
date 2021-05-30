@@ -2,10 +2,10 @@ package kodlamaio.hrms.business.validationRules;
 
 import com.google.common.base.Strings;
 
+import kodlamaio.hrms.core.entities.User;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
-import kodlamaio.hrms.entities.abstracts.User;
 
 public class UserValidation implements UserValidationService{
 

@@ -1,4 +1,4 @@
-package kodlamaio.hrms.entities.abstracts;
+package kodlamaio.hrms.core.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

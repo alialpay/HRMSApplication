@@ -4,10 +4,10 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.SystemEmployeeService;
 import kodlamaio.hrms.business.validationRules.SystemEmployeeValidationService;
+import kodlamaio.hrms.core.dataAccess.UserDao;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.SystemEmployeeDao;
-import kodlamaio.hrms.dataAccess.abstracts.UserDao;
 import kodlamaio.hrms.entities.concretes.SystemEmployee;
 
 @Service

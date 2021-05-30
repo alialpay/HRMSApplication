@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-import kodlamaio.hrms.entities.abstracts.User;
+import kodlamaio.hrms.core.entities.User;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
