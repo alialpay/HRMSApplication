@@ -7,7 +7,7 @@ import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 
-public class UserValidation implements UserValidationService{
+public class UserValidator implements UserValidatorService{
 
 	@Override
 	public Result userNullCheck(User user) {

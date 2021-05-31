@@ -15,10 +15,10 @@ import kodlamaio.hrms.entities.concretes.SystemEmployee;
 
 @RestController
 @RequestMapping("/api/employee")
-public class SystemEmployeeController {
+public class SystemEmployeesController {
     private final SystemEmployeeService systemEmployeeService;
 
-    public SystemEmployeeController(SystemEmployeeService systemEmployeeService) {
+    public SystemEmployeesController(SystemEmployeeService systemEmployeeService) {
         this.systemEmployeeService = systemEmployeeService;
     }
 

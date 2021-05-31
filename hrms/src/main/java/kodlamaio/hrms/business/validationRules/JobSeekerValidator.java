@@ -13,7 +13,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
 
 @Component
-public class JobSeekerValidation extends UserValidation implements JobSeekerValidationService {
+public class JobSeekerValidator extends UserValidator implements JobSeekerValidatorService {
 
 	@Override
 	public Result jobSeekerNullCheck(JobSeeker jobSeeker) {

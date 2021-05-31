@@ -10,7 +10,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.entities.concretes.SystemEmployee;
 
 @Component
-public class SystemEmployeeValidation extends UserValidation implements SystemEmployeeValidationService {
+public class SystemEmployeeValidator extends UserValidator implements SystemEmployeeValidatorService {
     @Override
     public Result isEmployeeNullCheck(SystemEmployee systemEmployee) {
         String firstName = systemEmployee.getFirstName();
