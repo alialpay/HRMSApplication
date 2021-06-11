@@ -50,6 +50,10 @@ public class AuthManager implements AuthService {
 		if (!mernis.isSuccess()) {
             return mernis;
         }
+		Result jobSeekerRegisterCheck = authValidator.checkJobSeekerRegisterForm(jobSeekerDto);
+		if (!jobSeekerRegisterCheck.isSuccess()) {
+            return jobSeekerRegisterCheck;
+        }
 		
 		return new SuccessResult("Kayıt başarılı");
 	}
@@ -63,18 +67,22 @@ public class AuthManager implements AuthService {
         }
 		
 		Result checkResult = authValidator.userNullCheck(employerDto);
-		if (!passwordResult.isSuccess()) {
+		if (!checkResult.isSuccess()) {
             return checkResult;
         }
 		
 		Result isNullResult = authValidator.employerNullCheck(employerDto);
-		if (!passwordResult.isSuccess()) {
+		if (!isNullResult.isSuccess()) {
             return isNullResult;
         }
 		
 		Result domainCheckResult = authValidator.isEmailDomainCheck(employerDto);
-		if (!passwordResult.isSuccess()) {
+		if (!domainCheckResult.isSuccess()) {
             return domainCheckResult;
+        }
+		Result employerRegisterCheck = authValidator.checkEmployerRegisterForm(employerDto);
+		if (!employerRegisterCheck.isSuccess()) {
+            return employerRegisterCheck;
         }
 		
 		

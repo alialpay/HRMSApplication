@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.validationRules;
 
 import kodlamaio.hrms.business.abstracts.MailService;
 import kodlamaio.hrms.core.adapters.mernis.UserCheckService;
+import kodlamaio.hrms.core.dataAccess.UserDao;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.SystemEmployee;
 import kodlamaio.hrms.entities.dtos.EmployerForRegisterDto;
@@ -17,9 +18,11 @@ public interface AuthValidatorService {
 
     Result employerNullCheck(EmployerForRegisterDto employerDto);
     Result isEmailDomainCheck(EmployerForRegisterDto employerDto);
+    Result checkEmployerRegisterForm(EmployerForRegisterDto employer);
     
     Result jobSeekerNullCheck(JobSeekerForRegisterDto jobSeekerDto);
     Result nationalIdValid (JobSeekerForRegisterDto jobSeekerDto);
+    Result checkJobSeekerRegisterForm(JobSeekerForRegisterDto jobSeeker);
     
     Result checkEmail(MailService mailService, UserDto user);
     Result checkMernis(JobSeekerForRegisterDto jobSeekerDto, UserCheckService mernisCheck);

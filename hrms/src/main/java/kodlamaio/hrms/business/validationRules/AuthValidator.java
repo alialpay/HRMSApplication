@@ -8,6 +8,7 @@ import com.google.common.base.Strings;
 
 import kodlamaio.hrms.business.abstracts.MailService;
 import kodlamaio.hrms.core.adapters.mernis.UserCheckService;
+import kodlamaio.hrms.core.dataAccess.UserDao;
 import kodlamaio.hrms.core.utilities.results.*;
 import kodlamaio.hrms.entities.concretes.SystemEmployee;
 import kodlamaio.hrms.entities.dtos.EmployerForRegisterDto;
@@ -15,7 +16,9 @@ import kodlamaio.hrms.entities.dtos.JobSeekerForRegisterDto;
 import kodlamaio.hrms.entities.dtos.UserDto;
 
 @Component
-public class AuthValidator implements AuthValidatorService {
+public class AuthValidator implements AuthValidatorService {	
+	
+	
 	public Result isPasswordConfirmed(String password, String confirmPassword) {
 		if (password.equals(confirmPassword)) {
 			return new SuccessResult();
@@ -93,7 +96,7 @@ public class AuthValidator implements AuthValidatorService {
 		Result result = mailService.verification(user.getEmail());
 
 		if (result == null) {
-			return new ErrorResult("email could not be verified");
+			return new ErrorResult("e-posta doğrulanamadı");
 		}
 
 		return new SuccessResult();
@@ -101,10 +104,32 @@ public class AuthValidator implements AuthValidatorService {
 
 	@Override
 	public Result checkMernis(JobSeekerForRegisterDto jobSeekerDto, UserCheckService mernisCheck) {
-		if(mernisCheck.validate(jobSeekerDto.getNationalityIdentity(),jobSeekerDto.getDateOfBirth().getYear()) == false) {
+		if (mernisCheck.validate(jobSeekerDto.getNationalityIdentity(),
+				jobSeekerDto.getDateOfBirth().getYear()) == false) {
 			return new ErrorResult("Geçersiz kimlik bilgisi");
 		}
-		return new SuccessResult() ;
+		return new SuccessResult();
 	}
+
+	@Override
+	public Result checkEmployerRegisterForm(EmployerForRegisterDto employer) {
+		if (employer.getCompanyName().isBlank() == true || employer.getWebAddress().isBlank() == true
+				|| employer.getPhoneNumber().isBlank() == true || employer.getEmail().isBlank() == true
+				|| employer.getPassword().isBlank() == true || employer.getPasswordConfirm().isBlank() == true) {
+			return new ErrorResult("Alanlar boş bırakılamaz");
+		}
+		return new SuccessResult();
+	}
+
+	@Override
+	public Result checkJobSeekerRegisterForm(JobSeekerForRegisterDto jobSeeker) {
+		if (jobSeeker.getFirstName().isBlank() == true || jobSeeker.getLastName().isBlank() == true
+				|| jobSeeker.getNationalityIdentity().isBlank() == true || jobSeeker.getEmail().isBlank() == true
+				|| jobSeeker.getPassword().isBlank() == true || jobSeeker.getPasswordConfirm().isBlank() == true) {
+			return new ErrorResult("Alanlar boş bırakılamaz");
+		}
+		return new SuccessResult();
+	}
+
 
 }
