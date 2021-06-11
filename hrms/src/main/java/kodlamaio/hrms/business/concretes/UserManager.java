@@ -29,5 +29,13 @@ public class UserManager<T extends User> implements UserService<T> {
         this.userDao.save(t);
         return new SuccessResult("Kullanıcı eklendi");
     }
+    
+    @Override
+    public DataResult<User> getByEmail(String email) {
+		if (userDao.getByEmail(email) != null) {
+			return new SuccessDataResult<User>();
+		}
+		return new ErrorDataResult<User>();
+	}
 
 }

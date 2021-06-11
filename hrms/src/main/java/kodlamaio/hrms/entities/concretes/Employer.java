@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import kodlamaio.hrms.core.entities.User;
@@ -14,7 +16,7 @@ import kodlamaio.hrms.core.entities.User;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name="employer_id")
 @Table(name="employers")
 public class Employer extends User {
 
@@ -29,5 +31,8 @@ public class Employer extends User {
     
     @Column(name="is_active")
 	private boolean isActive;
+    
+    @OneToMany(mappedBy= "employer")
+	private List<JobAdvertisement> jobAdvertisements;
     
 }

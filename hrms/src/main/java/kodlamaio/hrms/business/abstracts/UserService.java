@@ -9,5 +9,6 @@ import kodlamaio.hrms.core.utilities.results.Result;
 public interface UserService<T extends User> {
     DataResult<List<T>>getAll();
     Result add(T t);
+    DataResult<User> getByEmail(String email);
 
 }
