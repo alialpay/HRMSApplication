@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import kodlamaio.hrms.core.entities.User;
 
 @EqualsAndHashCode(callSuper = false)
@@ -18,6 +20,8 @@ import kodlamaio.hrms.core.entities.User;
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name="employer_id")
 @Table(name="employers")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
+
 public class Employer extends User {
 
     @Column(name="company_name")
