@@ -7,9 +7,12 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import kodlamaio.hrms.core.entities.User;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
@@ -18,6 +21,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name="id")
 @Table(name="job_seekers")
+@JsonIgnoreProperties({"jobSeekerPhotos"})
 
 public class JobSeeker extends User {
 
@@ -34,6 +38,9 @@ public class JobSeeker extends User {
 	private LocalDate dateOfBirth;
     
 	@Column(name="is_confirm")
-	private boolean isConfirm;    
+	private boolean isConfirm;
+	
+	@OneToMany(mappedBy= "jobSeeker")
+	private List<JobSeekerPhoto> jobSeekerPhotos;
 
 }
