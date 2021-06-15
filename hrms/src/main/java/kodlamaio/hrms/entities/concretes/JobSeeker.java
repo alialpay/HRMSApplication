@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import kodlamaio.hrms.core.entities.User;
@@ -40,7 +41,12 @@ public class JobSeeker extends User {
 	@Column(name="is_confirm")
 	private boolean isConfirm;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy= "jobSeeker")
 	private List<JobSeekerPhoto> jobSeekerPhotos;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy= "jobSeeker")
+	private List<SchoolInfo> schoolInfos;
 
 }

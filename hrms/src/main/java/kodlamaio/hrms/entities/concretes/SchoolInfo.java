@@ -1,7 +1,5 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -19,28 +18,33 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@NoArgsConstructor
+@Table(name = "schoolInfos")
 @AllArgsConstructor
-@Table(name="images")
+@NoArgsConstructor
+public class SchoolInfo {
 
-public class JobSeekerPhoto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id",nullable = false)
+	private int id;
 	
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "name")
+    @NotNull
+    private String name;
 
-    @Column(name = "path")
-    private String path;
-
-    @Column(name = "uploaded_at")
-    private LocalDate uploadedAt;
-
+    @Column(name = "department")
+    private String department;
+    
+    @Column(name = "start_date")
+    @NotNull
+    private int startDate;
+    
+    @Column(name = "graduation_date")
+    private int graduationDate;
+    
     @JsonIgnoreProperties({"email","password","createdAt","nationalIdentity","dateOfBirth", "confirm"})
     @ManyToOne()
     @JoinColumn(name = "jobSeeker_id")
     private JobSeeker jobSeeker;
-
-
     
 }
