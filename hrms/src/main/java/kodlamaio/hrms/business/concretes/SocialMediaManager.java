@@ -51,4 +51,10 @@ public class SocialMediaManager implements SocialMediaService {
 		return new ErrorDataResult<List<SocialMedia>>("data getirilemedi");
 	}
 
+	@Override
+	public Result addAll(List<SocialMedia> links) {
+		  socialMediaDao.saveAll(links);
+	      return new SuccessResult("başarılı");
+	}
+
 }

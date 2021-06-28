@@ -10,5 +10,6 @@ import kodlamaio.hrms.entities.concretes.JobSeekerPhoto;
 
 public interface JobSeekerPhotoService {
 	Result add(MultipartFile file, JobSeekerPhoto image);
+	Result addAll(List<JobSeekerPhoto> images); //cv
 	DataResult<List<JobSeekerPhoto>> getByJobSeekerId(int jobSeekerId);
 }

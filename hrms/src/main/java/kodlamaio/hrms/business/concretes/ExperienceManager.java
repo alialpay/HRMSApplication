@@ -67,4 +67,10 @@ private ExperienceDao experienceDao;
 			}
 		return new ErrorDataResult<List<Experience>>("desc sıralama yapılamadı");
 	}
+
+	@Override
+	public Result addAll(List<Experience> experiences) {
+		  experienceDao.saveAll(experiences);
+	      return new SuccessResult("başarılı");
+	}
 }

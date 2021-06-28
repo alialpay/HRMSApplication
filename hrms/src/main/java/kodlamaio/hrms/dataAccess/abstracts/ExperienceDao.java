@@ -11,4 +11,5 @@ import kodlamaio.hrms.entities.concretes.Experience;
 @Repository
 public interface ExperienceDao extends JpaRepository<Experience,Integer>{
 	List<Experience> getByJobSeekerId(Sort sort, int jobSeeker_id);
+	List<Experience> getAllByJobSeekerIdOrderByDateOfEndDesc(int jobSeekerId);
 }

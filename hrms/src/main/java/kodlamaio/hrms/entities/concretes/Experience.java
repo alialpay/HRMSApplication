@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "job_experiences")
+@Table(name = "experiences")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Experience {

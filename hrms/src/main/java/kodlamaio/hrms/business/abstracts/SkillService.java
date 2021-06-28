@@ -8,6 +8,7 @@ import kodlamaio.hrms.entities.concretes.Skill;
 
 public interface SkillService {
 	Result add(Skill skill);
+	Result addAll(List<Skill> skill); //cv
 	DataResult<List<Skill>> getAll();
 	DataResult<List<Skill>> getByJobSeekerId(int jobSeekerId);
 }

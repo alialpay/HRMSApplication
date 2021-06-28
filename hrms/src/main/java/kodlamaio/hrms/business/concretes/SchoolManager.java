@@ -54,4 +54,12 @@ public class SchoolManager implements SchoolService {
 		}
 		return new SuccessDataResult<List<SchoolInfo>>("listeleme yapılamadı");
 	}
+
+	@Override
+	public Result addAll(List<SchoolInfo> schools) {
+		  schoolDao.saveAll(schools);
+	      return new SuccessResult("başarılı");
+	}
+
+	
 }

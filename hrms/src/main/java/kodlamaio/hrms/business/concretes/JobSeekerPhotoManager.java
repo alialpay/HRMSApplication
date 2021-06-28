@@ -52,4 +52,11 @@ public class JobSeekerPhotoManager implements JobSeekerPhotoService {
 		}
 		return new ErrorDataResult<List<JobSeekerPhoto>>("İşlem yapılamıyor");
 	}
+
+
+	@Override
+	public Result addAll(List<JobSeekerPhoto> images) {
+		  imageDao.saveAll(images);
+	      return new SuccessResult("başarılı");
+	}
 }

@@ -12,7 +12,6 @@ import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.LanguageDao;
-import kodlamaio.hrms.entities.concretes.CoverLetter;
 import kodlamaio.hrms.entities.concretes.Language;
 
 @Service
@@ -57,6 +56,12 @@ public class LanguageManager implements LanguageService {
 			return new SuccessDataResult<List<Language>>(result,"başarılı");
 		}
 		return new ErrorDataResult<List<Language>>("data getirilemedi");
+	}
+
+	@Override
+	public Result addAll(List<Language> language) {
+		  languageDao.saveAll(language);
+	      return new SuccessResult("başarılı");
 	}
 
 }

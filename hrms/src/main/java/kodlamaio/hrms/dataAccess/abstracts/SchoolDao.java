@@ -11,4 +11,5 @@ import kodlamaio.hrms.entities.concretes.SchoolInfo;
 @Repository
 public interface SchoolDao extends JpaRepository<SchoolInfo, Integer> {
 	List<SchoolInfo> getByJobSeekerId(Sort sort, int jobSeekerId);
+	List<SchoolInfo> getAllByJobSeekerIdOrderByGraduationDate(int jobSeekerId);
 }

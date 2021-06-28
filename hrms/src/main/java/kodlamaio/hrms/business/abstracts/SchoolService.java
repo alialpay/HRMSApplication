@@ -8,6 +8,7 @@ import kodlamaio.hrms.entities.concretes.SchoolInfo;
 
 public interface SchoolService {
 	Result add(SchoolInfo school);
+	Result addAll(List<SchoolInfo> candidateSchools); //cv
 	DataResult<List<SchoolInfo>> getAll();
 	DataResult<List<SchoolInfo>> getByJobSeekerIdOrderByGraduationDateDESC(int jobSeekerId);
 }

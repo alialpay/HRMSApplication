@@ -53,4 +53,10 @@ public class SkillManager implements SkillService{
 		return new ErrorDataResult<List<Skill>>("data getirilemedi");
 	}
 
+	@Override
+	public Result addAll(List<Skill> skill) {
+		  skillDao.saveAll(skill);
+	      return new SuccessResult("başarılı");
+	}
+
 }
